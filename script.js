@@ -1,15 +1,15 @@
 function drawTetrisPlayground(x, y, target) {
     if (x <= 0 || y <= 0) throw new Error('x and y cannot be negative')
 
-    if(target.children.length) throw new Error('Aborted: target element should be empty');
+    if (target.children.length) throw new Error('Aborted: target element should be empty');
 
-    for(let rowsCount = 0; rowsCount < y; rowsCount++) {
+    for (let rowsCount = 0; rowsCount < y; rowsCount++) {
         const row = document.createElement('div')
         row.className = 'row'
         row.dataset['row'] = rowsCount;
         row.style.transform = `translateY(${-rowsCount}px)`
 
-        for(let cellsCount = 0; cellsCount < x; cellsCount++) {
+        for (let cellsCount = 0; cellsCount < x; cellsCount++) {
             const cell = document.createElement('div')
             cell.className = 'cell'
             cell.dataset['cell'] = cellsCount
@@ -27,40 +27,54 @@ drawTetrisPlayground(10, 20, tetrisPlaygroundTarget)
 
 try {
     drawTetrisPlayground(10, 20, tetrisPlaygroundTarget)
-} catch(e) {
+} catch (e) {
     console.log(e.message)
 }
 
 
 const shapes = {
-    I: [[1],
+    I: {
+        shape: [[1],
         [1],
         [1],
         [1]],
+        color: 'lightlblue'
+    },
 
-    J: [[0, 1],
+    J: {
+        shape: [[0, 1],
         [0, 1],
         [1, 1]],
+        color: 'blue'
+    },
 
-    L: [[1, 0],
+    L: {
+        shape: [[1, 0],
         [1, 0],
-        [1, 1]], 
+        [1, 1]], color: 'orange'
+    },
 
-    O: [[1, 1],
-        [1, 1]], 
+    O: {
+        shape: [[1, 1],
+        [1, 1]], color: 'yellow'
+    },
 
-    S: { 
+    S: {
         shape: [[0, 1, 1],
-                 [1, 1, 0]],
-         color: 'yellowgreen'
-        }, 
+        [1, 1, 0]],
+        color: 'yellowgreen'
+    },
 
-    T: [[1, 1, 1],
-        [0, 1, 0]], 
+    T: {
+        shape: [[1, 1, 1],
+        [0, 1, 0]], color: 'darkviolet'
+    },
 
-    Z: [[1, 1, 0],
-        [0, 1, 1]]
-} 
+    Z: {
+        shape: [[1, 1, 0],
+        [0, 1, 1]], color: 'red'
+    }
+}
 
 const shapeKeys = Object.keys(shapes)
 
@@ -71,8 +85,8 @@ const shapeKeyIndex = Math.floor(Math.random() * shapeKeys.length)
 //        -> 0 ... 6.99999999999 
 const shapeKey = shapeKeys[shapeKeyIndex]
 
-// const currentShape = shapes[shapeKey]
-const currentShape = shapes.S
+const currentShape = shapes[shapeKey]
+// const currentShape = shapes.S
 const rowsToColor = currentShape.shape.length
 const cellsToColor = currentShape.shape[0].length
 console.log(shapes.S)
