@@ -51,12 +51,14 @@ const shapes = {
     L: {
         shape: [[1, 0],
         [1, 0],
-        [1, 1]], color: 'orange'
+        [1, 1]], 
+        color: 'orange'
     },
 
     O: {
         shape: [[1, 1],
-        [1, 1]], color: 'yellow'
+        [1, 1]], 
+        color: 'yellow'
     },
 
     S: {
@@ -67,12 +69,14 @@ const shapes = {
 
     T: {
         shape: [[1, 1, 1],
-        [0, 1, 0]], color: 'darkviolet'
+        [0, 1, 0]], 
+        color: 'darkviolet'
     },
 
     Z: {
         shape: [[1, 1, 0],
-        [0, 1, 1]], color: 'red'
+        [0, 1, 1]], 
+        color: 'red'
     }
 }
 
