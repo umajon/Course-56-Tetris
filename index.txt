@@ -8,8 +8,7 @@
 </head>
 <body>
 	<h1>Tetris</h1>
-    <!-- Linux команды -->
     <div class="tetris-playground"></div>
-    <script src="./index.js" type="module"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
