@@ -108,6 +108,17 @@ for (let rowIndex = 0; rowIndex < rowsToColor; rowIndex++) {
     }
 }
 
+
+function rotateShape(shape) {
+    
+
+
+
+}
+
+
+
+
 console.log()
 
 
