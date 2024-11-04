@@ -85,7 +85,45 @@ renderShape()
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         currentShape.shape = rotateShape(currentShape.shape)
-        removePreviousShape()
-        renderShape()
+        function removePreviousShape() {
+            const rowsToColor = currentShape.shape.length;
+            const cellsToColor = currentShape.shape[0].length;
+        
+            // Пройдитесь по ячейкам, которые занимала текущая форма, и очистите их
+            for (let rowIndex = 0; rowIndex < rowsToColor; rowIndex++) {
+                const row = tetrisPlaygroundTarget.children[rowIndex];
+                for (let cellIndex = 0; cellIndex < cellsToColor; cellIndex++) {
+                    const cell = row.children[cellIndex];
+                    if (currentShape.shape[rowIndex][cellIndex]) {
+                        cell.style.backgroundColor = ''; // Очистка цвета
+                    }
+                }
+            }
+        }
+        
+        function renderShape() {
+            const rowsToColor = currentShape.shape.length;
+            const cellsToColor = currentShape.shape[0].length;
+        
+            for (let rowIndex = 0; rowIndex < rowsToColor; rowIndex++) {
+                const row = tetrisPlaygroundTarget.children[rowIndex];
+        
+                for (let cellIndex = 0; cellIndex < cellsToColor; cellIndex++) {
+                    const cell = row.children[cellIndex];
+                    if (currentShape.shape[rowIndex][cellIndex]) {
+                        cell.style.backgroundColor = currentShape.color; // Установка нового цвета
+                    }
+                }
+            }
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                removePreviousShape();         // Удаляем старую форму
+                currentShape.shape = rotateShape(currentShape.shape);  // Поворачиваем форму
+                renderShape();                 // Рисуем новую форму
+            }
+        });
+        
     }
 })
