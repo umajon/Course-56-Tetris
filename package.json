@@ -1,0 +1,12 @@
+{
+  "type":"module",
+  "dependencies": {
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "compile_indexjs": "tsc --project tsconfig.json && node index.js",
+    "compile_shapesjs": "tsc --project tsconfig.json && node shapes.js"
+    
+  }
+
+}

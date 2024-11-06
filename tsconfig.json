@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+      "target": "ES6" // Указываем использование стандарта ES6
+    },
+    "files": ["index.ts", "shapes.ts"]
+  }
