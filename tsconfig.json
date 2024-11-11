@@ -1,6 +1,15 @@
 {
     "compilerOptions": {
-      "target": "ES6" // Указываем использование стандарта ES6
+        "target": "ES6",
+        "module": "ESNext",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true
     },
-    "files": ["index.ts", "shapes.ts"]
-  }
+    "include": [
+        "src/ts/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
